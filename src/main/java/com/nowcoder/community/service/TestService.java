@@ -10,7 +10,7 @@ import javax.annotation.PreDestroy;
  * @Date 2023/5/27 18:45
  * @Slogn 致未来的你！
  */
-//@Service
+@Service
 public class TestService {
 
 

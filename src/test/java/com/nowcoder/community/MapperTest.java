@@ -1,8 +1,10 @@
 package com.nowcoder.community;
 
 import com.nowcoder.community.dao.DiscussPostMapper;
+import com.nowcoder.community.dao.LoginTicketMapper;
 import com.nowcoder.community.dao.UserMapper;
 import com.nowcoder.community.entity.DiscussPost;
+import com.nowcoder.community.entity.LoginTicket;
 import com.nowcoder.community.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +20,7 @@ import java.util.List;
  * @Slogn 致未来的你！
  */
 @SpringBootTest
-@ContextConfiguration(classes = {CommunityApplication.class})
+//@ContextConfiguration(classes = {CommunityApplication.class})
 public class MapperTest {
 
     @Autowired
@@ -26,6 +28,9 @@ public class MapperTest {
 
     @Autowired
     private DiscussPostMapper discussPostMapper;
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
     @Test
     public void test1(){
         User user = userMapper.selectById(101);
@@ -59,6 +64,32 @@ public class MapperTest {
         discussPostList.stream().forEach(System.out::println);
 
         int i = discussPostMapper.selectDiscussPostRows(0);
+        System.out.println(i);
+    }
+
+    @Test
+    public void testInsertLoginTicket(){
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setUserId(101);
+        loginTicket.setTicket("abc");
+        loginTicket.setStatus(0);
+        loginTicket.setExpired(new Date(System.currentTimeMillis() + 1000 * 60 *10));
+
+        int i = loginTicketMapper.insertLoginTicket(loginTicket);
+    }
+
+    @Test
+    public void testSelectLoginTicket(){
+        LoginTicket loginTicket = loginTicketMapper.selectByTicket("abc");
+        System.out.println(loginTicket);
+
+        int abc = loginTicketMapper.updateStatus("abc", 1);
+        LoginTicket loginTicket1 = loginTicketMapper.selectByTicket("abc");
+        System.out.println(loginTicket1);
+    }
+    @Test
+    public void testSelectTicketByUserId(){
+        int i = loginTicketMapper.selectTicketByUserId(151);
         System.out.println(i);
     }
 }

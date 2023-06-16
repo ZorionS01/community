@@ -23,4 +23,6 @@ public interface UserMapper {
 
     int updatePassword(int id,String password);
 
+    int updateStatus(int id,int status);
+
 }

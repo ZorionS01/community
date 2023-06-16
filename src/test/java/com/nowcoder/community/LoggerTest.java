@@ -3,7 +3,7 @@ package com.nowcoder.community;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
@@ -12,8 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
  * @Slogn 致未来的你！
  */
 
-@SpringBootApplication
-@ContextConfiguration(classes = CommunityApplication.class)
+@SpringBootTest
+//@ContextConfiguration(classes = CommunityApplication.class)
 public class LoggerTest {
 
     private static final Logger logger = LoggerFactory.getLogger(LoggerTest.class);
