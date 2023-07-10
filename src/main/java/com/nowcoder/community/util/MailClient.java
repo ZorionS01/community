@@ -39,7 +39,4 @@ public class MailClient {
             logger.error("发送失败"+e.getMessage());
         }
     }
-
-
-
 }

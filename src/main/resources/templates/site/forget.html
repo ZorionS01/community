@@ -69,7 +69,7 @@
 							<input type="email" th:class="|form-control ${emailMsg!=null?'is-invalid':''}|"
 								   th:value="${param.email}" name="email" id="your-email" placeholder="请输入您的邮箱!" required>
 <!--							<div class="invalid-feedback" >-->
-							<div class="invalid-feedback" th:text="${emailMsg}" >
+							<div class="invalid-feedback" id="email_msg" th:text="${emailMsg}">
 								该邮箱已被注册!
 							</div>
 						</div>

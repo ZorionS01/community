@@ -27,4 +27,14 @@ public class User {
     private String activationCode;
     private String headerUrl;
     private Date createTime;
+
+    public User(){
+
+    }
+
+    public User(String username, int type, Date createTime) {
+        this.username = username;
+        this.type = type;
+        this.createTime = createTime;
+    }
 }

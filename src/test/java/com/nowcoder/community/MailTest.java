@@ -28,6 +28,7 @@ public class MailTest {
         mailClient.sendMail("1837862986@qq.com","今天你敲代码了吗？","看什么？还不去敲代码！！！");
     }
 
+    //发送Html文件
     @Test
     public void testHtmlMail(){
         Context context = new Context();
